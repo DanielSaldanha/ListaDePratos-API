@@ -14,6 +14,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
 new MySqlServerVersion(new Version(8, 0, 21))));
 //FIM DAS MODIFICAÇOES
+
+// Configura o MemoryCache
+builder.Services.AddMemoryCache();
+
+// Adiciona suporte para controladores
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
